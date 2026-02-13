@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page 4 — For Her</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .center-card{max-width:820px;margin:20px auto;padding:28px;border-radius:14px;background:var(--card);box-shadow:var(--shadow);text-align:center}
+    .big-text{font-size:32px;font-weight:700;line-height:1.1;margin-bottom:12px}
+    .sub{color:var(--muted);margin-bottom:20px}
+    .comp-btn{padding:12px 18px;border-radius:12px;font-weight:600}
+    .compliment{margin-top:20px;font-size:20px;padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.06),transparent);display:inline-block}
+    .hearts{position:fixed;left:12px;top:12px;pointer-events:none}
+  </style>
+</head>
+<body class="dark-mode">
+  <main class="container">
+    <nav class="nav">
+      <h1 class="title">Little Compliments</h1>
+      <div>
+        <!-- Back button removed per request -->
+      </div>
+    </nav>
+
+    <section class="card center-card">
+      <div class="big-text">You made my life worth living.</div>
+      <div class="sub">Check the floating envelopes baby :> </div>
+      <div>
+        <button id="compliment-btn" class="comp-btn">Click Me</button>
+        <button id="surprise-btn" class="ghost">Surprise</button>
+      </div>
+      <div id="compliment-area" class="compliment" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <div id="hearts" class="hearts"></div>
+
+  <div id="envelopes" class="envelopes" aria-hidden="false"></div>
+
+  <div id="letter-modal" class="modal hidden letter-modal" role="dialog" aria-modal="true">
+    <div class="modal-body">
+      <button class="close" id="close-letter">&times;</button>
+      <div id="letter-content" class="sweet-quote"></div>
+    </div>
+  </div>
+
+  <script src="page4.js"></script>
+  <img src="designs/dance.webp" alt="dance" class="corner-img right">
+  <img src="designs/dance1.webp" alt="dance1" class="corner-img left">
+</body>
+</html>

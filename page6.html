@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page 6 — Doors</title>
+    <img src="designs/dance.webp" alt="dance" class="corner-img right">
+    <img src="designs/dance1.webp" alt="dance1" class="corner-img left">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .doors-wrap{max-width:880px;margin:40px auto;display:flex;gap:22px;justify-content:center;align-items:flex-start}
+    .door{background:linear-gradient(180deg,#fff,#fffefc);border-radius:12px;padding:18px 20px;text-align:center;box-shadow:var(--shadow);cursor:pointer;width:200px}
+    .door-icon{font-size:88px;line-height:1}
+    .door h3{margin:10px 0 6px}
+    .modal-full{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,8,14,0.6);z-index:220}
+    .modal-full.hidden{display:none}
+    .modal-body{background:var(--card);padding:22px;border-radius:12px;max-width:860px;width:92%;max-height:86vh;overflow:auto}
+    .modal-body img{max-width:100%;height:auto;border-radius:8px;margin-top:12px}
+    .close-btn{margin-top:12px}
+    .poem{white-space:pre-wrap;text-align:left}
+  </style>
+</head>
+<body class="dark-mode">
+  <main class="container">
+    <section class="card center-card">
+      <h2 class="big-text">Choose a Door</h2>
+      <div class="sub">Open any door to see what's inside.</div>
+      <div class="doors-wrap">
+        <div class="door" id="door-1" role="button" tabindex="0"> 
+          <div class="door-icon">🚪</div>
+          <h3>Door One</h3>
+          <div class="sub">A poem for you</div>
+        </div>
+
+        <div class="door" id="door-2" role="button" tabindex="0"> 
+          <div class="door-icon">🚪</div>
+          <h3>Door Two</h3>
+          <div class="sub">My promise</div>
+        </div>
+
+        <div class="door" id="door-3" role="button" tabindex="0"> 
+          <div class="door-icon">🚪</div>
+          <h3>Door Three</h3>
+          <div class="sub">Vows & pictures</div>
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <!-- Back link removed per request -->
+        <a href="page7.html" class="comp-btn next-btn" style="margin-left:12px">Next</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="door-modal" class="modal-full hidden" aria-hidden="true">
+    <div class="modal-body">
+      <div id="door-content"></div>
+      <div style="text-align:right"><button id="close-door" class="close-btn ghost" aria-label="Close dialog" onclick="(function(){const m=document.getElementById('door-modal'); m.classList.add('hidden'); m.setAttribute('aria-hidden','true'); const c=document.getElementById('door-content'); if(c) c.innerHTML='';})()">Close</button></div>
+    </div>
+  </div>
+
+  <script src="page6.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Cozy Pixel World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <nav class="nav">
+      <h1 class="title">For You Pookie</h1>
+      <div>
+        <button id="night-toggle" class="ghost">Night Window</button>
+      </div>
+    </nav>
+
+    <section id="main-content" class="card">
+      <div class="left">
+        <h2>Welcome to this little web that I made specifically for you, babyyyyy</h2>
+        </h2>
+        <p class="lead">Explore your cozy pixel world. Everything here is made for you.</p>
+        <div class="idea">
+          <h3>A little idea</h3>
+          <p>I'd like to make a tiny place where every small moment we share can be found again, soft notes, little promises, and quiet stars.</p>
+          <blockquote class="sweet-quote">"You feel like home, calm, warm, and a little bit of magic."</blockquote>
+        </div>
+      </div>
+      <div class="cat-wrap">
+        <!-- pixel cat as a button -->
+        <button id="cat-btn" class="icon-btn" aria-label="pat the cat">
+          <svg id="pixel-cat" viewBox="0 0 120 120" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+            <rect class="outlineable" x="20" y="36" width="80" height="56" rx="8" fill="#FFF0E6" />
+            <polygon class="outlineable" points="26,36 38,18 50,36" fill="#FFDCD6" />
+            <polygon class="outlineable" points="94,36 82,18 70,36" fill="#FFDCD6" />
+            <circle class="cheek" cx="44" cy="64" r="6" fill="#FFDFE4" />
+            <circle class="cheek" cx="76" cy="64" r="6" fill="#FFDFE4" />
+          </svg>
+        </button>
+        <div class="pat-area">
+          <p id="pat-text" class="pat-text">pat the cat alot</p>
+        </div>
+        <img id="boogsh-img" class="boogsh hidden" src="designs/boogsh.webp" alt="surprise" />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Made with care and excitement</small>
+    </footer>
+  </main>
+
+  <!-- corner dance images -->
+  <img src="designs/dance.webp" alt="dance" class="corner-img right">
+  <img src="designs/dance1.webp" alt="dance1" class="corner-img left">
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-body">
+      <button id="close-modal" class="close">×</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

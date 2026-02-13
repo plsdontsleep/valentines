@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page 5 — Will You Stay?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .center{max-width:700px;margin:64px auto;text-align:center;padding:28px}
+    .question{font-size:26px;font-weight:700;margin-bottom:18px}
+    .choices{display:flex;gap:12px;justify-content:center;margin-top:12px}
+    .choices button{padding:12px 20px;border-radius:12px;font-weight:600}
+    .response{margin-top:18px;font-style:italic}
+  </style>
+</head>
+<body class="dark-mode">
+  <main class="container center">
+    <div class="card center-card">
+      <div class="question">Will you be in my life forever?</div>
+      <div class="choices">
+        <button id="yes-btn" class="comp-btn">Yes</button>
+        <button id="no-btn" class="ghost">No</button>
+      </div>
+      <div id="response" class="response" aria-live="polite"></div>
+    </div>
+  </main>
+  <script src="page5.js"></script>
+  <img src="designs/dance.webp" alt="dance" class="corner-img right">
+  <img src="designs/dance1.webp" alt="dance1" class="corner-img left">
+</body>
+</html>

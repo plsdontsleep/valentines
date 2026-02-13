@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Page 3 — Pixel Road</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{
+      --road: #2b2b2b;
+      --road-line-color: #ffdca8;
+      --house-window-bg: #ffffff;
+      --house-door: #6b3b2a;
+    }
+    .dark-mode{
+      --road: #1e1726;
+      --road-line-color: #ffdca8;
+      --house-window-bg: #fff5e6;
+      --house-door: #6b3b2a;
+    }
+    .road-wrap{width:100%;height:420px;border-radius:12px;background:var(--card);display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+    .road-scroller{width:100%;height:100%;overflow:auto;background:linear-gradient(180deg,var(--card-bg),#fff);box-shadow:inset 0 0 0 1px rgba(0,0,0,0.02);}
+    .track{height:100%;width:3000px;position:relative}
+    .road{position:absolute;left:0;right:0;top:50%;height:120px;margin-top:-60px;background:var(--road);border-radius:6px}
+    .road-line{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;background:repeating-linear-gradient(90deg,var(--road-line-color) 0 24px,transparent 24px 48px);opacity:0.95}
+    .house{width:96px;height:96px;position:absolute;cursor:pointer}
+    .house{z-index:1}
+    .house:focus{outline:2px solid rgba(0,0,0,0.12);outline-offset:4px}
+    .house .body{width:72px;height:56px;position:absolute;left:50%;bottom:8px;transform:translateX(-50%);background:#ffce9e;border:4px solid #6b3b2a;box-sizing:content-box;border-radius:6px;z-index:2}
+    .house .roof{position:absolute;left:50%;top:4px;transform:translateX(-50%);width:0;height:0;border-left:44px solid transparent;border-right:44px solid transparent;border-bottom:28px solid #b33;z-index:3}
+    .house .window{width:10px;height:10px;position:absolute;background:var(--house-window-bg);border:2px solid rgba(0,0,0,0.06);box-shadow:0 2px 0 rgba(0,0,0,0.04);}
+    .house .door{width:14px;height:24px;position:absolute;background:var(--house-door);bottom:8px;left:50%;transform:translateX(-50%);border-radius:2px}
+    .house.top{top:18px}
+    .house.bottom{bottom:18px}
+    .label{position:absolute;left:50%;transform:translateX(-50%);top:100%;font-size:12px;color:var(--muted);margin-top:6px;pointer-events:auto;z-index:4;display:none}
+    .controls{display:flex;gap:8px;align-items:center}
+    .hint{color:var(--muted);margin-bottom:8px}
+    /* tiny responsive tweaks */
+    @media (max-width:720px){ .track{width:2000px} .house{width:72px;height:72px} }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <nav class="nav">
+      <h1 class="title">Memory Lane</h1>
+    </nav>
+
+    <section class="card">
+      <div class="hint">Use ← → or A D to scroll the road</div>
+      <div class="road-wrap">
+        <div id="scroller" class="road-scroller">
+          <div id="track" class="track">
+            <div class="road"></div>
+            <div class="road-line"></div>
+            <!-- houses will be injected by page3.js -->
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <div style="color:var(--muted)">Knock on each house baby then press the car if you're done :></div>
+        <div class="controls">
+          <!-- Back button removed per request -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- corner dance images (matching page2) -->
+  <img src="designs/dance.webp" alt="dance" class="corner-img right">
+  <img src="designs/dance1.webp" alt="dance1" class="corner-img left">
+
+  <script src="page3.js"></script>
+</body>
+</html>

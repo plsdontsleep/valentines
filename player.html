@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Music Player</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>body{margin:12px;font-family:Poppins,system-ui;} .player{display:flex;align-items:center;gap:10px}</style>
+</head>
+<body>
+  <div class="player">
+    <audio id="popup-audio" src="music/music.mp3" preload="auto" loop></audio>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <label>Vol <input id="vol" type="range" min="0" max="1" step="0.01" value="0.7"></label>
+    <button id="close">Close</button>
+  </div>
+
+  <script>
+    const a = document.getElementById('popup-audio');
+    const play = document.getElementById('play');
+    const pause = document.getElementById('pause');
+    const vol = document.getElementById('vol');
+    const closeBtn = document.getElementById('close');
+    a.volume = 0.7;
+    // try autoplay (should be allowed because opener opened this window during click)
+    a.play().catch((err)=>{ console.warn('autoplay failed', err); document.body.insertAdjacentHTML('beforeend','<p style="color:#a33">Unable to start audio automatically — press Play if needed.</p>'); });
+    // listen for music change requests via localStorage (other pages set 'music-src')
+    function applyMusicSrc(src){
+      if(!src) return
+      if(a.src && a.src.endsWith(src)) return
+      a.pause()
+      a.src = src
+      a.load()
+      a.play().catch(()=>{})
+    }
+    // Do NOT auto-apply persisted value on load (avoids starting sad unexpectedly).
+    // Listen for storage events from other pages and apply the new value when it changes.
+    function normalizeSrc(val){ if(!val) return val; return val.split('::')[0] }
+    window.addEventListener('storage', (ev)=>{
+      if(ev.key === 'music-src') applyMusicSrc(normalizeSrc(ev.newValue))
+    })
+    play.addEventListener('click',()=>{
+      a.play().catch(e=>{ alert('Playback failed: '+e.message) });
+    });
+    pause.addEventListener('click',()=>a.pause());
+    vol.addEventListener('input',()=>{ a.volume = Number(vol.value); });
+    closeBtn.addEventListener('click',()=>{ window.close(); });
+  </script>
+</body>
+</html>
